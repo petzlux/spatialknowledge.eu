@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Spatial Knowledge &#187; OpenCL</title>
+	<atom:link href="http://www.spatialknowledge.eu/tag/opencl/feed/" rel="self" type="application/rss+xml" />
+	<link>http://www.spatialknowledge.eu</link>
+	<description>The web presence of Patrick Weber</description>
+	<lastBuildDate>Mon, 04 Nov 2013 20:59:03 +0000</lastBuildDate>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.3.1</generator>
+		<item>
+		<title>Manifold GIS set to leverage GPU&#8217;s much more widely in v9 ?</title>
+		<link>http://www.spatialknowledge.eu/2009/12/manifold-gis-set-to-leverage-gpus-much-more-widely-in-v9/</link>
+		<comments>http://www.spatialknowledge.eu/2009/12/manifold-gis-set-to-leverage-gpus-much-more-widely-in-v9/#comments</comments>
+		<pubDate>Mon, 14 Dec 2009 15:23:53 +0000</pubDate>
+		<dc:creator>Patrick</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[CUDA]]></category>
+		<category><![CDATA[Manifold GIS]]></category>
+		<category><![CDATA[OpenCL]]></category>
+
+		<guid isPermaLink="false">http://www.spatialknowledge.eu/?p=159</guid>
+		<description><![CDATA[If you are interested in the path the next version of Manifold likely is taking, the following screencast of Dimitri&#8217;s recent presentation at the Nvidia GPU Conference gives us some hints! Altough Dimitri  doesn&#8217;t in this presentation go into any great specific detail about Manifold v9 CUDA capabilities (expected as that the presentation was not [...]]]></description>
+			<content:encoded><![CDATA[<p>If you are interested in the path the next version of Manifold likely is taking, the following <a href="http://nvidia.fullviewmedia.com/GPU2009/1002-hillsborough-1458.html" target="_self">screencast of Dimitri&#8217;s recent presentation at the Nvidia GPU Conference</a> gives us some hints! Altough Dimitri  doesn&#8217;t in this presentation go into any great specific detail about Manifold v9 <a href="http://en.wikipedia.org/wiki/CUDA">CUDA </a>capabilities (expected as that the presentation was not covered by an Non Disclosure Agreement), nonetheless, this presentation seems to be the closest one can get to a technical presentation by Manifold at a User Meeting, minus the NDA!</p>
+<p>First, Dimitri goes into a lot of detail about the fundamental software development challenges for GPU programming, much of which is over my head in terms of technical detail. Sadly, all the examples in this presentation refer to raster processing, which is already present in Manifold v8.</p>
+<p>The second half of the talk is clearly more interesting, as he presents fundamental architectural work developing a lightweight processing scheduler. This scheduler seems to be the key infrastructure element enabling efficient workload paralellisation, enabling Manifold to optimally leverage a heterogeneous environment of multiple CPU&#8217;s and GPU&#8217;s. One thing that seems to be clear from this presentation is that Manifold over the past two years have been very busy rewriting large parts of their core code to enable the paralellisation of almost all GIS tasks inside Manifold. Particularly interesting is the mention at the end that they are in a position to take advantage of <strong>any </strong><a href="http://en.wikipedia.org/wiki/GPGPU">GPGPU</a> platform (Nvidia and AMD), which implies the adoption of <a href="http://en.wikipedia.org/wiki/OpenCL" target="_self">OpenCL </a>by Manifold for their next release.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://www.spatialknowledge.eu/2009/12/manifold-gis-set-to-leverage-gpus-much-more-widely-in-v9/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

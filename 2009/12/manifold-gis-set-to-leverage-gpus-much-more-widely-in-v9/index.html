@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<title>Manifold GIS set to leverage GPU&#8217;s much more widely in v9 ?  |  Spatial Knowledge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="index, follow" />
+<meta name="keywords" content="cuda,manifold gis,opencl,uncategorized" />
+
+<link rel="stylesheet" type="text/css" href="../../../wp-content/themes/typebased/style.css" />
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="../../../feed/index.html" />
+<link rel="alternate" type="text/xml" title="RSS .92" href="../../../feed/index.html" />
+<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="../../../feed/atom/index.html" />
+<link rel="pingback" href="../../../xmlrpc.php" />
+
+<!--[if IE 6]>
+<script type="text/javascript" src="../../../wp-content/themes/typebased/includes/js/menu.js"></script>
+<![endif]-->	
+
+<link rel='stylesheet' id='sharedaddy-css'  href='../../../wp-content/plugins/jetpack/modules/sharedaddy/sharing-ver=3.3.1.css' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.spatialknowledge.eu/wp-includes/js/jquery/jquery.js?ver=1.7.1'></script>
+<script type='text/javascript' src='http://www.spatialknowledge.eu/wp-includes/js/jquery/ui/jquery.ui.core.min.js?ver=1.8.16'></script>
+<script type='text/javascript' src='http://www.spatialknowledge.eu/wp-includes/js/jquery/ui/jquery.ui.widget.min.js?ver=1.8.16'></script>
+<script type='text/javascript' src='http://www.spatialknowledge.eu/wp-includes/js/jquery/ui/jquery.ui.tabs.min.js?ver=1.8.16'></script>
+<script type='text/javascript' src='../../../wp-content/themes/typebased/functions/js/shortcodes-ver=1.js'></script>
+<script type='text/javascript' src='http://www.spatialknowledge.eu/wp-includes/js/comment-reply.js?ver=20090102'></script>
+<script type='text/javascript' src='../../../wp-content/themes/typebased/includes/js/superfish-ver=3.3.1.js'></script>
+<script type='text/javascript' src='../../../wp-content/plugins/google-analyticator/external-tracking.min-ver=6.2.js'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc.php-rsd.xml" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.spatialknowledge.eu/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='PostGIS Developments Presentation' href='../postgis-developments-presentation/index.html' />
+<link rel='next' title='OpenStreetMap progress in Port-au-Prince' href='../../../2010/01/openstreetmap-progress-in-port-au-prince/index.html' />
+<meta name="generator" content="WordPress 3.3.1" />
+<link rel='canonical' href='index.html' />
+<link rel='shortlink' href='http://wp.me/p1qHvs-2z' />
+
+<!-- Theme version -->
+<meta name="generator" content="Typebased 2.3.3" />
+<meta name="generator" content="WooFramework 4.2.2" />
+<!-- Alt Stylesheet -->
+<link href="../../../wp-content/themes/typebased/styles/default.css" rel="stylesheet" type="text/css" />
+
+<!-- Custom Favicon -->
+<link rel="shortcut icon" href="../../../wp-content/uploads/2011/02/4564.png"/>
+
+<!-- Woo Shortcodes CSS -->
+<link href="../../../wp-content/themes/typebased/functions/css/shortcodes.css" rel="stylesheet" type="text/css" />
+
+<!-- Custom Stylesheet -->
+<link href="../../../wp-content/themes/typebased/custom.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<!-- Google Analytics Tracking by Google Analyticator 6.2: http://ronaldheft.com/code/analyticator/ -->
+<script type="text/javascript">
+	var analyticsFileTypes = ['zip','exe','map','pdf','mp3'];
+	var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-1288223-3']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+
+<body class="single single-post postid-159 single-format-standard unknown">
+
+<div id="container">
+
+
+
+	<div id="header">
+
+<div style="width:560px; font-size:18px; color:#FF0000; margin:20px auto; padding: 10px; background:#FFFFCC; border:2px solid #FF0000;">
+<b>Notice:</b> This blog is now archived and no new content or comments will be added anymore. You can follow me at <a href="https://twitter.com/petzlux"> @petzlux </a>
+</div>
+		<!--<h1>
+			<a href="../../../index.html" title="The web presence of Patrick Weber">
+			<img src="../../../wp-content/uploads/2011/02/bannersketch.png" style="margin-top:0px;" alt="Spatial Knowledge" /></a></h1>-->
+	</div>
+	
+	<div id="menu">
+				<ul id="navigation" class="nav wrap">
+										<li class="page_item current_page_item first"><a href="../../../index.html"><span>Home</span></a></li>
+				<li class="page_item page-item-17"><a href="../../../services/index.html"><span>GIS Consultancy &#038; Training Services</span></a></li>
+<li class="page_item page-item-4"><a href="../../../publications/index.html"><span>Publications</span></a></li>
+<li class="page_item page-item-2"><a href="../../../about/index.html"><span>About me</span></a></li>
+						</ul>
+			</div>
+	<div class="wrap background">
+		
+		<div id="content" class="left-col wrap">
+		
+						
+		<!--- Post Starts -->
+		
+			<div class="post wrap page">
+			
+				<div class="post-meta left-col">
+					<h3 class="wrap"><span class="month">Dec<span class="year">2009</span></span><span class="day">14</span></h3>
+					<h4 class="author"><a href="../../../author/admin/index.html" title="Posts by Patrick" rel="author">Patrick</a></h4>
+					<h4 class="comments"><a href="index.html#comments">0</a></h4>
+				</div>
+				
+				<div class="post-content right-col">
+					<h2><a href="index.html" rel="bookmark" title="Manifold GIS set to leverage GPU&#8217;s much more widely in v9 ?">Manifold GIS set to leverage GPU&#8217;s much more widely in v9 ?</a></h2>
+					<p>If you are interested in the path the next version of Manifold likely is taking, the following <a href="http://nvidia.fullviewmedia.com/GPU2009/1002-hillsborough-1458.html" target="_self">screencast of Dimitri&#8217;s recent presentation at the Nvidia GPU Conference</a> gives us some hints! Altough Dimitri  doesn&#8217;t in this presentation go into any great specific detail about Manifold v9 <a href="http://en.wikipedia.org/wiki/CUDA">CUDA </a>capabilities (expected as that the presentation was not covered by an Non Disclosure Agreement), nonetheless, this presentation seems to be the closest one can get to a technical presentation by Manifold at a User Meeting, minus the NDA!</p>
+<p>First, Dimitri goes into a lot of detail about the fundamental software development challenges for GPU programming, much of which is over my head in terms of technical detail. Sadly, all the examples in this presentation refer to raster processing, which is already present in Manifold v8.</p>
+<p>The second half of the talk is clearly more interesting, as he presents fundamental architectural work developing a lightweight processing scheduler. This scheduler seems to be the key infrastructure element enabling efficient workload paralellisation, enabling Manifold to optimally leverage a heterogeneous environment of multiple CPU&#8217;s and GPU&#8217;s. One thing that seems to be clear from this presentation is that Manifold over the past two years have been very busy rewriting large parts of their core code to enable the paralellisation of almost all GIS tasks inside Manifold. Particularly interesting is the mention at the end that they are in a position to take advantage of <strong>any </strong><a href="http://en.wikipedia.org/wiki/GPGPU">GPGPU</a> platform (Nvidia and AMD), which implies the adoption of <a href="http://en.wikipedia.org/wiki/OpenCL" target="_self">OpenCL </a>by Manifold for their next release.</p>
+<div class="snap_nopreview sharing robots-nocontent"><ul><li class="share-twitter share-regular"><div class="twitter_button"><iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url=http://www.spatialknowledge.eu/2009/12/manifold-gis-set-to-leverage-gpus-much-more-widely-in-v9/&counturl=http://www.spatialknowledge.eu/2009/12/manifold-gis-set-to-leverage-gpus-much-more-widely-in-v9/&count=horizontal&text=Manifold%20GIS%20set%20to%20leverage%20GPU's%20much%20more%20widely%20in%20v9%20?:" style="width:97px; height:20px;"></iframe></div></li><li class="share-custom"><a href="index.html#" class="sharing-anchor">Share</a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-email"><a rel="nofollow" class="share-email share-icon" href="index-shared=email&msg=fail.html" target="_blank" title="Click to email this to a friend">Email</a></li><li class="share-print"><a rel="nofollow" class="share-print share-icon" href="index.html#print" target="_blank" title="Click to print">Print</a></li><li class="share-end"></li><li class="share-facebook"><a rel="nofollow" class="share-facebook share-icon" href="http://www.spatialknowledge.eu/2009/12/manifold-gis-set-to-leverage-gpus-much-more-widely-in-v9/?share=facebook" target="_blank" title="Share on Facebook">Facebook</a></li><li class="share-stumbleupon"><a rel="nofollow" class="share-stumbleupon share-icon" href="http://www.spatialknowledge.eu/2009/12/manifold-gis-set-to-leverage-gpus-much-more-widely-in-v9/?share=stumbleupon" target="_blank" title="Click to share on StumbleUpon">StumbleUpon</a></li><li class="share-end"></li><li class="share-reddit"><a rel="nofollow" class="share-reddit share-icon" href="http://www.spatialknowledge.eu/2009/12/manifold-gis-set-to-leverage-gpus-much-more-widely-in-v9/?share=reddit" target="_blank" title="Click to share on Reddit">Reddit</a></li><li class="share-digg"><a rel="nofollow" class="share-digg share-icon" href="http://www.spatialknowledge.eu/2009/12/manifold-gis-set-to-leverage-gpus-much-more-widely-in-v9/?share=digg" target="_blank" title="Click to Digg this post">Digg</a></li><li class="share-end"></li><li class="share-end"></li></ul></div></div><div class="sharing-clear"></div></div>					
+					
+<!-- You can start editing here. -->
+
+<div id="comments_wrap">
+
+
+			<!-- If comments are closed. -->
+		<p class="nocomments">Comments are closed.</p>
+
+	
+
+</div> <!-- end #comments_wrap -->
+
+
+										
+				</div>
+				
+			</div>
+			
+			<!--- Post Ends -->
+
+		</div>
+		
+				<!--- Sidebar Starts -->
+		
+		<div id="sidebar" class="right-col">
+		
+			<div id="search">
+				<form method="get" id="searchform" action="http://www.spatialknowledge.eu/">
+					<div>
+						<input type="text" class="search_box" name="s" id="s" />
+						<input type="image" src="../../../wp-content/themes/typebased/images/search.gif" class="submit" name="submit" />
+					</div>
+				</form>
+			</div>
+						
+			<div id="sidebar_in">
+			
+			<div id="text-3" class="block widget widget_text">			<div class="textwidget"><img class="alignright" src="../../../wp-content/uploads/2009/03/petz-150x150.jpg">
+<p>Hi, I'm Patrick, a Teaching Fellow at the <a href="http://cege.ucl.ac.uk/">Department for Civil, Environmental and Geomatic Engineering</a> at <a href="http://www.ucl.ac.uk/">University College London</a>. On this site, you can find more information about my <a href="../../../services/index.html">professional activities</a> and my <a href="../../../publications/index.html">academic achievements</a>, or my <a href="http://www.linkedin.com/in/pweber">LinkedIn Profile</a>.</p> </div>
+		</div><div id="wp_twitter_goodies_profile_widgets" class="block widget widget_wp_twitter_goodies_profile"><h2></h2><script src="http://widgets.twimg.com/j/2/widget.js"></script><script>new TWTR.Widget({  version: 2,  type: 'profile',  rpp: 30,  interval: 5000,  width: 265,  height: 150,  theme: {    shell: {      background: '#202020',      color: '#D6D6D6'    },    tweets: {      background: '#202020',      color: '#D6D6D6',      links: '#FFFFFF'    }  },  features: {    scrollbar: false,    loop: false,    live: true,    hashtags: true,    timestamp: true,    avatars: false,    behavior: 'all'  }}).render().setUser('petzlux').start();</script></div><div id="linkcat-40" class="block widget widget_links"><h2>Blogs</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://povesham.wordpress.com/" rel="colleague" title="Muki Haklay’s research blog">Po Ve Sham</a></li>
+<li><a href="http://uclsstc.wordpress.com/" title=" A study of the relationship between morphology, sociability, economics and accessibility.">Successful Suburban Town Centres Blog</a></li>
+
+	</ul>
+</div>
+<div id="linkcat-39" class="block widget widget_links"><h2>Projects</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://jiscg3.blogspot.com/" title="Im the lead technical developer for this project.">JISCG3 Bridging the gap between the Geoweb and GIS</a></li>
+<li><a href="http://www.manipedia.eu/" title="The Manifold GIS Wiki">Manipedia</a></li>
+<li><a href="http://www.mappingforchange.org.uk/" title="A social enterprise supporting sustainable communities through mapping.">Mapping for Change</a></li>
+
+	</ul>
+</div>
+<div id="tag_cloud-2" class="block widget widget_tag_cloud"><h2> </h2><div class="tagcloud"><a href='../../../tag/africa/index.html' class='tag-link-32' title='1 topic' style='font-size: 8pt;'>africa</a>
+<a href='../../../tag/berlin/index.html' class='tag-link-43' title='1 topic' style='font-size: 8pt;'>Berlin</a>
+<a href='../../../tag/business-analysis/index.html' class='tag-link-23' title='2 topics' style='font-size: 11.8769230769pt;'>business analysis</a>
+<a href='../../../tag/business-mapping/index.html' class='tag-link-34' title='1 topic' style='font-size: 8pt;'>business mapping</a>
+<a href='../../../tag/cege/index.html' class='tag-link-27' title='3 topics' style='font-size: 14.4615384615pt;'>CEGE</a>
+<a href='../../../tag/chorley-institute/index.html' class='tag-link-24' title='3 topics' style='font-size: 14.4615384615pt;'>Chorley Institute</a>
+<a href='../../../tag/conference/index.html' class='tag-link-21' title='2 topics' style='font-size: 11.8769230769pt;'>Conference</a>
+<a href='../../../tag/cuda/index.html' class='tag-link-7' title='3 topics' style='font-size: 14.4615384615pt;'>CUDA</a>
+<a href='../../../tag/engd/index.html' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>EngD</a>
+<a href='../../../tag/excites/index.html' class='tag-link-25' title='2 topics' style='font-size: 11.8769230769pt;'>ExCiteS</a>
+<a href='../../../tag/exploratory-spatial-data-analysis/index.html' class='tag-link-4' title='3 topics' style='font-size: 14.4615384615pt;'>Exploratory Spatial Data Analysis</a>
+<a href='../../../tag/extreme-citizen-science/index.html' class='tag-link-26' title='2 topics' style='font-size: 11.8769230769pt;'>Extreme Citizen Science</a>
+<a href='../../../tag/fdi/index.html' class='tag-link-30' title='1 topic' style='font-size: 8pt;'>FDI</a>
+<a href='../../../tag/foreign-direct-investment/index.html' class='tag-link-33' title='1 topic' style='font-size: 8pt;'>foreign direct investment</a>
+<a href='../../../tag/geocommons/index.html' class='tag-link-46' title='1 topic' style='font-size: 8pt;'>geocommons</a>
+<a href='../../../tag/geoweb/index.html' class='tag-link-20' title='5 topics' style='font-size: 18.3384615385pt;'>Geoweb</a>
+<a href='../../../tag/gis/index.html' class='tag-link-3' title='8 topics' style='font-size: 22pt;'>GIS</a>
+<a href='../../../tag/hci/index.html' class='tag-link-37' title='3 topics' style='font-size: 14.4615384615pt;'>hci</a>
+<a href='../../../tag/history-of-gis/index.html' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>History of GIS</a>
+<a href='../../../tag/manifold/index.html' class='tag-link-10' title='5 topics' style='font-size: 18.3384615385pt;'>Manifold</a>
+<a href='../../../tag/manifold-gis/index.html' class='tag-link-6' title='7 topics' style='font-size: 20.9230769231pt;'>Manifold GIS</a>
+<a href='../../../tag/mapping-party/index.html' class='tag-link-48' title='1 topic' style='font-size: 8pt;'>Mapping Party</a>
+<a href='../../../tag/neogeography/index.html' class='tag-link-44' title='2 topics' style='font-size: 11.8769230769pt;'>neogeography</a>
+<a href='../../../tag/opencl/index.html' class='tag-link-17' title='1 topic' style='font-size: 8pt;'>OpenCL</a>
+<a href='../../../tag/openstreetmap/index.html' class='tag-link-11' title='7 topics' style='font-size: 20.9230769231pt;'>Openstreetmap</a>
+<a href='../../../tag/osm/index.html' class='tag-link-35' title='3 topics' style='font-size: 14.4615384615pt;'>osm</a>
+<a href='../../../tag/postgis/index.html' class='tag-link-15' title='1 topic' style='font-size: 8pt;'>postgis</a>
+<a href='../../../tag/potlatch/index.html' class='tag-link-36' title='3 topics' style='font-size: 14.4615384615pt;'>potlatch</a>
+<a href='../../../tag/presentation/index.html' class='tag-link-16' title='2 topics' style='font-size: 11.8769230769pt;'>presentation</a>
+<a href='../../../tag/r/index.html' class='tag-link-8' title='1 topic' style='font-size: 8pt;'>R</a>
+<a href='../../../tag/scripting/index.html' class='tag-link-9' title='1 topic' style='font-size: 8pt;'>Scripting</a>
+<a href='../../../tag/sotmeu11/index.html' class='tag-link-47' title='1 topic' style='font-size: 8pt;'>SOTMEU11</a>
+<a href='../../../tag/spatial-analysis/index.html' class='tag-link-5' title='4 topics' style='font-size: 16.6153846154pt;'>Spatial Analysis</a>
+<a href='../../../tag/spatial-databases/index.html' class='tag-link-45' title='1 topic' style='font-size: 8pt;'>spatial databases</a>
+<a href='../../../tag/training/index.html' class='tag-link-14' title='2 topics' style='font-size: 11.8769230769pt;'>Training</a>
+<a href='../../../tag/ucl/index.html' class='tag-link-19' title='4 topics' style='font-size: 16.6153846154pt;'>UCL</a>
+<a href='../../../tag/usability/index.html' class='tag-link-13' title='5 topics' style='font-size: 18.3384615385pt;'>Usability</a>
+<a href='../../../tag/vgi/index.html' class='tag-link-38' title='2 topics' style='font-size: 11.8769230769pt;'>vgi</a>
+<a href='../../../tag/wceu/index.html' class='tag-link-41' title='1 topic' style='font-size: 8pt;'>wceu</a>
+<a href='../../../tag/wherecampeu/index.html' class='tag-link-42' title='2 topics' style='font-size: 11.8769230769pt;'>WhereCampEU</a></div>
+</div><div id="recent-comments-2" class="block widget widget_recent_comments"><h2>Recent Comments</h2><ul id="recentcomments"><li class="recentcomments">Steve O on <a href="../../../2011/03/manifold-gis-a-year-on/comment-page-1/index.html#comment-670">Manifold GIS &#8211; a year on</a></li><li class="recentcomments"><a href='http://none' rel='external nofollow' class='url'>barry</a> on <a href="../../../2011/03/manifold-gis-a-year-on/comment-page-1/index.html#comment-653">Manifold GIS &#8211; a year on</a></li><li class="recentcomments"><a href='http://www.simplewelcomepaydayloans.co.uk/' rel='external nofollow' class='url'>wonga</a> on <a href="../../../2011/04/afrographique-infographic-of-foreign-investment-on-the-african-3/comment-page-1/index.html#comment-641">Afrographique &#8211; Infographic of FDI into Africa</a></li><li class="recentcomments">Neil on <a href="../../../2011/03/manifold-gis-a-year-on/comment-page-1/index.html#comment-603">Manifold GIS &#8211; a year on</a></li><li class="recentcomments"><a href='http://glaikit.org/' rel='external nofollow' class='url'>scruss</a> on <a href="../../05/five-low-hanging-fruit-quick-usability-fixes-manifold-should-consider/comment-page-1/index.html#comment-576">Five low hanging fruit: quick usability fixes Manifold should consider</a></li></ul></div>			
+			
+						
+			</div>
+				
+		</div>
+		
+		<!--- Sidebar Ends -->		
+	</div>
+	
+</div>
+	
+<div id="footer" class="wrap">
+
+	<div class="left-col">
+		<div class="popular wrap">
+			<h2>Most Popular Articles</h2>
+			<ul>
+                <!-- Gets the posts with the most comments -->
+				<li><a href="../../../2011/05/openstreetmap-wheres-the-search/index.html" title="OpenStreetMap - Where's the Search?">OpenStreetMap - Where's the Search?</a></li><li><a href="../../05/five-low-hanging-fruit-quick-usability-fixes-manifold-should-consider/index.html" title="Five low hanging fruit: quick usability fixes Manifold should consider">Five low hanging fruit: quick usability fixes Manifold should consider</a></li><li><a href="../../../2010/02/manifold-crossing-the-chasm/index.html" title="Manifold - Crossing the Chasm ? ">Manifold - Crossing the Chasm ? </a></li><li><a href="../../../2011/03/manifold-gis-a-year-on/index.html" title="Manifold GIS - a year on">Manifold GIS - a year on</a></li><li><a href="../../../2011/09/wheelchair-accessibility-mapping-party-at-ucl/index.html" title="Wheelchair Accessibility Mapping Party at UCL">Wheelchair Accessibility Mapping Party at UCL</a></li>                    
+			</ul>
+		</div>
+	</div>
+	
+	<div id="subscribe" class="right-col">
+		<h2>Subscribe to RSS</h2>
+		<p class="rss">If you enjoyed the post, make sure you subscribe to the RSS feed.</p>
+		<p>
+		<a href="../../../feed/index.html">Articles</a><br />
+		<a href="../../../comments/feed/index.html">Comments</a>
+		</p>
+	</div>
+	
+<div id="copyright" class="wrap">
+
+	<div class="left-col">
+		<p>&copy; 2013<br /><style type='text/css'>#a75486dd, #a75486dd *,#a75486dd A {text-decoration:none; font-size:0.9em; color: #444;}</style><span id='a75486dd'><!--1928642396920--></span></p>
+	</div>
+	
+	<div class="right-col">
+		<p>Powered by WordPress. Design by <a href="http://woothemes.com"><img src="../../../wp-content/themes/typebased/images/logo-footer.jpg" width="87" height="21" alt="woo themes" /></a></p>
+	</div>
+
+</div>
+
+</div>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?aa&ver=3.3.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../../wp-content/plugins/jetpack/modules/wpgroho-ver=3.3.1.js'></script>
+	<div style="display:none">
+	</div>
+<script type='text/javascript' src='../../../wp-content/plugins/jetpack/modules/sharedaddy/sharing-ver=0.1.js'></script>
+	<div id="sharing_email" style="display: none;">
+		<form action="" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="text" name="target_email" id="target_email" value="" />
+			
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="" />
+				
+				<label for="source_email">Your Email Address</label>
+				<input type="text" name="source_email" id="source_email" value="" />
+
+						
+			
+			<img style="float: right; display: none" class="loading" src="../../../wp-content/plugins/jetpack/modules/sharedaddy/images/loading.gif" alt="loading" width="16" height="16" />
+			<input type="submit" value="Send Email" class="sharing_send" />
+			<a href="index.html#cancel" class="sharing_cancel">Cancel</a>
+			
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+			
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+
+	<script src="http://stats.wordpress.com/e-201345.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:1.2.4',blog:'21140106',post:'159'});
+	var load_cmc = function(){linktracker_init(21140106,159,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+</body>
+</html>
